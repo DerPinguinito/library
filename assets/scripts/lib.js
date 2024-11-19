@@ -3,7 +3,7 @@ import Book from './book.js'
 
 const LIBRARY = []
 
-const ui = {
+const lib = {
     setBook(name, author, year, pages, read) {
         const BOOK = new Book(name, author, year, pages, read);
         return BOOK;
@@ -16,4 +16,4 @@ const ui = {
     }
 }
 
-export default ui;
+export default lib;

@@ -1,4 +1,4 @@
-import ui from './ui.js'
+import lib from './lib.js'
 
 
 function getInputValues() {
@@ -31,9 +31,9 @@ function getButton(id) {
 function setAddBookButtonEvent(button) {
     button.addEventListener('click', () => {
         const VALUES = getInputValues();
-        const newBOOK = ui.setBook(VALUES.title, VALUES.author, VALUES.year, VALUES.pages, VALUES.read);
-        ui.addBookToLibrary(newBOOK);
-        ui.printLibrary(); // to be deleted
+        const newBOOK = lib.setBook(VALUES.title, VALUES.author, VALUES.year, VALUES.pages, VALUES.read);
+        lib.addBookToLibrary(newBOOK);
+        lib.printLibrary(); // to be deleted
     })
 }
 
