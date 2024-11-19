@@ -31,6 +31,10 @@ function getButton(id) {
 function setAddBookButtonEvent(button) {
     button.addEventListener('click', () => {
         const VALUES = getInputValues();
+        if (!VALUES.title || !VALUES.author) { // prevents book from being added if values are missing
+            console.log("Missing values");
+            return;
+        }
         const newBOOK = lib.setBook(VALUES.title, VALUES.author, VALUES.year, VALUES.pages, VALUES.read);
         lib.addBookToLibrary(newBOOK);
         lib.printLibrary(); // to be deleted
