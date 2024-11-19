@@ -1,7 +1,7 @@
 import Book from './book.js'
 
 
-export const LIBRARY = []
+const LIBRARY = []
 
 const ui = {
     setBook(name, author, year, pages, read) {
@@ -10,6 +10,9 @@ const ui = {
     },
     addBookToLibrary(book) {;
         LIBRARY.push(book);
+    },
+    printLibrary() {
+        console.log(LIBRARY);
     }
 }
 
