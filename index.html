@@ -3,11 +3,47 @@
     <head>
         <meta charset="UTF-8">
         <title>Library || The Odin Project</title>
+        <link rel="preload" href="./assets/styles/styles.css" as="style">
+        <link rel="stylesheet" href="./assets/styles/styles.css">
         <script type="module" src="./assets/scripts/main.js" defer></script>
     </head>
     <body>
         <main>
-
+            <header>
+                <h1>My Library</h1>
+            </header>
+            <div id="content">
+                <div class="sidebar">
+                    <h2>Add Book</h2>
+                    <div class="menu">
+                        <div>
+                            <label for="bname">name:</label>
+                            <input type="text" name="bname" id="bname">
+                        </div>
+                        <div>
+                            <label for="bauthor">author:</label>
+                            <input type="text" name="bauthor" id="bauthor">
+                        </div>
+                        <div>
+                            <label for="byear">year:</label>
+                            <input type="text" name="byear" id="byear">
+                        </div>
+                        <div>
+                            <label for="bpages">pages:</label>
+                            <input type="number" name="bpages" id="bpages" min="1">
+                        </div>
+                        <div>
+                            <label for="bread">read:</label>
+                            <input type="checkbox" name="bread" id="bread">
+                        </div>
+                        <button type="submit">add</button>
+                    </div>
+                </div>
+                <div>
+                    <div class="search-area"></div>
+                    <div class="output-area"></div>
+                </div>
+            </div>
         </main>
     </body>
 </html>

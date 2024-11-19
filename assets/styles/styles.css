@@ -3,3 +3,95 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+:root {
+    --label-size: 1rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightpink;
+
+}
+
+main {
+    background-color: lightblue;
+    border: 3px solid white;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#content {
+    border: 4px solid blue;
+    background-color: bisque;
+    margin: 15px;
+    padding: 20px;
+}
+
+#content > .sidebar {
+    border: 2px solid white;
+    background-color: lightgreen;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content > .sidebar > h2 {
+    margin: 15px;
+}
+
+#content > .sidebar > .menu {
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+}
+
+#content > .sidebar > .menu > div {
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+#content > .sidebar > .menu > div > label {
+    text-transform: uppercase;
+    font-size: var(--label-size);
+}
+
+#content > .sidebar > .menu > div > input {
+    border: none;
+    border-radius: 5px;
+    height: 1.5rem;
+    width: 10rem;
+    padding: 2px;
+}
+
+#content > .sidebar > .menu > button {
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-inline: 20px;
+    
+}
