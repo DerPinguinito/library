@@ -19,6 +19,20 @@ function getInputValues() {
     return inputValues;
 }
 
+function clearInputFields() {
+    const bookTITLE = document.getElementById('btitle');
+    const bookAUTHOR = document.getElementById('bauthor');
+    const bookYEAR = document.getElementById('byear');
+    const bookPAGES = document.getElementById('bpages');
+    const bookREAD = document.getElementById('bread');
+
+    bookTITLE.value = '';
+    bookAUTHOR.value = '';
+    bookYEAR.value = '';
+    bookPAGES.value = '';
+    bookREAD.checked = false;
+}
+
 function getButton(id) {
     const BUTTON = document.getElementById(id);
     if (!BUTTON) {
@@ -37,6 +51,7 @@ function setAddBookButtonEvent(button) {
         }
         const newBOOK = lib.setBook(VALUES.title, VALUES.author, VALUES.year, VALUES.pages, VALUES.read);
         lib.addBookToLibrary(newBOOK);
+        clearInputFields();
         lib.printLibrary(); // to be deleted
     })
 }
