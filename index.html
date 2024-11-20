@@ -12,37 +12,54 @@
             <header>
                 <h1>My Library</h1>
             </header>
-            <div id="content">
-                <div class="sidebar">
-                    <h2>Add Book</h2>
-                    <div class="menu">
-                        <div>
-                            <label for="btitle">name:</label>
-                            <input type="text" name="btitle" id="btitle">
-                        </div>
-                        <div>
-                            <label for="bauthor">author:</label>
-                            <input type="text" name="bauthor" id="bauthor">
-                        </div>
-                        <div>
-                            <label for="byear">year:</label>
-                            <input type="text" name="byear" id="byear">
-                        </div>
-                        <div>
-                            <label for="bpages">pages:</label>
-                            <input type="number" name="bpages" id="bpages" min="1">
-                        </div>
-                        <div>
-                            <label for="bread">read:</label>
-                            <input type="checkbox" name="bread" id="bread">
-                        </div>
-                        <button type="submit" id="submit">add book</button>
+            <div class="sidebar">
+                <h2>Add Book</h2>
+                <div class="menu">
+                    <div>
+                        <label for="btitle">title:</label>
+                        <input type="text" name="btitle" id="btitle">
                     </div>
+                    <div>
+                        <label for="bauthor">author:</label>
+                        <input type="text" name="bauthor" id="bauthor">
+                    </div>
+                    <div>
+                        <label for="byear">year:</label>
+                        <input type="text" name="byear" id="byear">
+                    </div>
+                    <div>
+                        <label for="bpages">pages:</label>
+                        <input type="number" name="bpages" id="bpages" min="1">
+                    </div>
+                    <div>
+                        <label for="bread">read:</label>
+                        <input type="checkbox" name="bread" id="bread">
+                    </div>
+                    <button type="submit" id="submit">add book</button>
                 </div>
-                <div>
-                    <div class="search-area"></div>
-                    <div class="output-area"></div>
-                </div>
+            </div>
+            <div class="search-area">
+                <label for="sbar">search:</label>
+                <input type="search" name="sbar" id="sbar" placeholder="author, title">
+                <button type="submit" id="search">search</button>
+            </div>
+            <div class="output-area">
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Year</th>
+                        <th>Pages</th>
+                        <th>Status</th>
+                    </tr>
+                    <tr>
+                        <td>Harry Potter</td>
+                        <td>J.K. Rowling</td>
+                        <td>1998</td>
+                        <td>250</td>
+                        <td>Read</td>
+                    </tr>
+                </table>
             </div>
         </main>
     </body>
