@@ -115,3 +115,17 @@ header {
     grid-column: 2 / 3;
     grid-row: 3 / 5;
 }
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid white;
+}
+
+th,
+td {
+    padding: 10px;
+    text-justify: center;
+    text-align: center;
+}
