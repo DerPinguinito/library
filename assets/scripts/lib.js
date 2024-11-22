@@ -16,7 +16,7 @@ const lib = {
     },
     loopThroughLibrary() {
         LIBRARY.forEach(book => {
-            console.log(`${book.title} was written by ${book.author} in ${book.year}. It is ${book.pages} pages long.`);
+            return book;
         })
     }
 }
