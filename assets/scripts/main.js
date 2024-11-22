@@ -42,7 +42,7 @@ function getButton(id) {
     return BUTTON;
 }
 
-function setAddBookButtonEvent(button) {
+function setAddBookButtonEvent(button, table) {
     button.addEventListener('click', () => {
         const VALUES = getInputValues();
         if (!VALUES.title || !VALUES.author) { // prevents book from being added if values are missing
@@ -51,15 +51,50 @@ function setAddBookButtonEvent(button) {
         }
         const newBOOK = lib.setBook(VALUES.title, VALUES.author, VALUES.year, VALUES.pages, VALUES.read);
         lib.addBookToLibrary(newBOOK);
+        appendBookToTable(table, newBOOK);
         clearInputFields();
-        lib.printLibrary(); // to be deleted
     })
+}
+
+function getTableBody() {
+    const TABLE = document.getElementsByTagName('table')[0];
+    if (!TABLE) {
+        console.log("Table not found");
+        return;
+    }
+    return TABLE;
+}
+
+function appendBookToTable(table, book) {
+ 
+    const TR = document.createElement('tr');
+
+    const TITLE = document.createElement('td');
+    const AUTHOR = document.createElement('td');
+    const YEAR = document.createElement('td');
+    const PAGES = document.createElement('td');
+    const READ = document.createElement('td');
+
+    TITLE.textContent = book.title;
+    AUTHOR.textContent = book.author;
+    YEAR.textContent = book.year;
+    PAGES.textContent = book.pages;
+    READ.textContent = book.read ? "Read" : "Not Read";
+
+    TR.appendChild(TITLE);
+    TR.appendChild(AUTHOR);
+    TR.appendChild(YEAR);
+    TR.appendChild(PAGES);
+    TR.appendChild(READ);
+
+    table.appendChild(TR);
 }
 
 
 function entryPoint() {
     const submitBUTTON = getButton('submit');
-    setAddBookButtonEvent(submitBUTTON);
+    const TABLE = getTableBody();
+    setAddBookButtonEvent(submitBUTTON, TABLE);
 }
 
 function main() {
