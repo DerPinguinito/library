@@ -4,4 +4,9 @@ export default function Book(title, author, year, pages, read = false) {
     this.year = year;
     this.pages = pages;
     this.read = read;
+
+    this.changeReadStatus = function() {
+        this.read = !this.read;
+        return;
+    }
 }
