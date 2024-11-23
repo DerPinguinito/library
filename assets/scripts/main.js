@@ -65,6 +65,27 @@ function getTableBody() {
     return TABLE;
 }
 
+function createDropDownMenu(book) {
+    const MENU = document.createElement('select');
+    MENU.name = 'dropdown';
+    MENU.id = 'dropdown';
+
+    const optionREAD = document.createElement('option');
+    optionREAD.textContent = 'read';
+    optionREAD.value = true;
+    optionREAD.selected = book.read ? true : null;
+
+    const optionNOTREAD = document.createElement('option');
+    optionNOTREAD.textContent = 'not read';
+    optionNOTREAD.value = false;
+    optionNOTREAD.selected = book.read ? null : true;
+
+    MENU.appendChild(optionREAD);
+    MENU.appendChild(optionNOTREAD);
+
+    return MENU;
+}
+
 function appendBookToTable(table, book) {
  
     const TR = document.createElement('tr');
@@ -73,13 +94,12 @@ function appendBookToTable(table, book) {
     const AUTHOR = document.createElement('td');
     const YEAR = document.createElement('td');
     const PAGES = document.createElement('td');
-    const READ = document.createElement('td');
+    const READ = createDropDownMenu(book);
 
     TITLE.textContent = book.title;
     AUTHOR.textContent = book.author;
     YEAR.textContent = book.year;
     PAGES.textContent = book.pages;
-    READ.textContent = book.read ? "Read" : "Not Read";
 
     TR.appendChild(TITLE);
     TR.appendChild(AUTHOR);
