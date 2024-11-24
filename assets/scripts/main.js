@@ -65,6 +65,12 @@ function getTableBody() {
     return TABLE;
 }
 
+function addDropDownListenerEvent(dropDownMenu, book) {
+    dropDownMenu.addEventListener('change', () => {
+        book.changeReadStatus();
+    })
+}
+
 function createDropDownMenu(book) {
     const MENU = document.createElement('select');
     MENU.name = 'dropdown';
@@ -82,6 +88,8 @@ function createDropDownMenu(book) {
 
     MENU.appendChild(optionREAD);
     MENU.appendChild(optionNOTREAD);
+
+    addDropDownListenerEvent(MENU, book);
 
     return MENU;
 }
