@@ -15,25 +15,12 @@ const lib = {
         console.log(LIBRARY);
     },
     loopThroughLibrary() {
+        const lb = []
         LIBRARY.forEach(book => {
-            return book;
+            lb.push(book);
         })
+        return lb;
     }
 }
-
-function entryPoint() {
-    const a = lib.setBook("book1", "author1", 1001, 100, true);
-    const b = lib.setBook("book2", "author1", 1001, 100, true);
-    lib.addBookToLibrary(a);
-    lib.addBookToLibrary(b);
-    lib.loopThroughLibrary();
-}
-
-function run() {
-    entryPoint();
-}
-
-run();
-
 
 export default lib;

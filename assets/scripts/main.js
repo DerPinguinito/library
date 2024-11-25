@@ -118,10 +118,24 @@ function appendBookToTable(table, book) {
     table.appendChild(TR);
 }
 
+function loadLibrary(table) {
+    const LIBRARY = lib.loopThroughLibrary();
+    LIBRARY.forEach(book => {
+        appendBookToTable(table, book);
+    })
+}
+
 
 function entryPoint() {
+    // appends placeholder books
+    const a = lib.setBook("book1", "author1", 1001, 100, true);
+    const b = lib.setBook("book2", "author1", 1001, 100, true);
+    lib.addBookToLibrary(a);
+    lib.addBookToLibrary(b);
+
     const submitBUTTON = getButton('submit');
     const TABLE = getTableBody();
+    loadLibrary(TABLE);
     setAddBookButtonEvent(submitBUTTON, TABLE);
 }
 
