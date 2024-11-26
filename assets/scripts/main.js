@@ -60,6 +60,19 @@ function setAddBookButtonEvent(button, table) {
     })
 }
 
+function createDeleteButton() {
+    const BUTTON = document.createElement('button');
+    BUTTON.textContent = 'DELETE';
+    return BUTTON;
+}
+
+function setDeleteButtonEvent(button) {
+    button.addEventListener('click', () => {
+        const TARGET = button.closest('tr');
+        TARGET.parentNode.removeChild(TARGET);
+    })
+}
+
 function getTableBody() {
     const TABLE = document.getElementsByTagName('table')[0];
     if (!TABLE) {
@@ -101,7 +114,7 @@ function createDropDownMenu(book) {
 function appendBookToTable(table, book) {
  
     const TR = document.createElement('tr');
-
+    const buttonCOLUMN = document.createElement('td');
     const TITLE = document.createElement('td');
     const AUTHOR = document.createElement('td');
     const PUBLISHER = document.createElement('td');
@@ -118,6 +131,11 @@ function appendBookToTable(table, book) {
     const MENU = createDropDownMenu(book);
     READ.appendChild(MENU);
 
+    const deleteBUTTON = createDeleteButton();
+    setDeleteButtonEvent(deleteBUTTON);
+    buttonCOLUMN.appendChild(deleteBUTTON);
+
+    TR.appendChild(buttonCOLUMN);
     TR.appendChild(TITLE);
     TR.appendChild(AUTHOR);
     TR.appendChild(PUBLISHER);
@@ -134,7 +152,6 @@ function loadLibrary(table) {
         appendBookToTable(table, book);
     })
 }
-
 
 function entryPoint() {
     // appends placeholder books
