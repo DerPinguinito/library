@@ -20,6 +20,10 @@ const lib = {
             lb.push(book);
         })
         return lb;
+    },
+    removeBook(book) {
+        const i = LIBRARY.indexOf(book);
+        LIBRARY.splice(i, 1);
     }
 }
 

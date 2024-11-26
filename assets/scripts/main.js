@@ -66,10 +66,11 @@ function createDeleteButton() {
     return BUTTON;
 }
 
-function setDeleteButtonEvent(button) {
+function setDeleteButtonEvent(button, book) {
     button.addEventListener('click', () => {
         const TARGET = button.closest('tr');
         TARGET.parentNode.removeChild(TARGET);
+        lib.removeBook(book);
     })
 }
 
@@ -122,8 +123,8 @@ function appendBookToTable(table, book) {
     const PAGES = document.createElement('td');
     const READ = document.createElement('td');
 
-    const deleteBUTTON = createDeleteButton();
-    setDeleteButtonEvent(deleteBUTTON);
+    const deleteBUTTON = createDeleteButton(); 
+    setDeleteButtonEvent(deleteBUTTON, book);
     buttonCOLUMN.appendChild(deleteBUTTON);
 
     TITLE.textContent = book.title;
