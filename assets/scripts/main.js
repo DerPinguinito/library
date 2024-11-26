@@ -122,6 +122,10 @@ function appendBookToTable(table, book) {
     const PAGES = document.createElement('td');
     const READ = document.createElement('td');
 
+    const deleteBUTTON = createDeleteButton();
+    setDeleteButtonEvent(deleteBUTTON);
+    buttonCOLUMN.appendChild(deleteBUTTON);
+
     TITLE.textContent = book.title;
     AUTHOR.textContent = book.author;
     PUBLISHER.textContent = book.publisher;
@@ -130,10 +134,6 @@ function appendBookToTable(table, book) {
 
     const MENU = createDropDownMenu(book);
     READ.appendChild(MENU);
-
-    const deleteBUTTON = createDeleteButton();
-    setDeleteButtonEvent(deleteBUTTON);
-    buttonCOLUMN.appendChild(deleteBUTTON);
 
     TR.appendChild(buttonCOLUMN);
     TR.appendChild(TITLE);
