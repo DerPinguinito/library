@@ -4,8 +4,8 @@ import Book from './book.js'
 const LIBRARY = []
 
 const lib = {
-    setBook(title, author, year, pages, read) {
-        const BOOK = new Book(title, author, year, pages, read);
+    setBook(title, author, publisher, year, pages, read) {
+        const BOOK = new Book(title, author, publisher, year, pages, read);
         return BOOK;
     },
     addBookToLibrary(book) {

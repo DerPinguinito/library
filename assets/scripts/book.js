@@ -1,6 +1,7 @@
-export default function Book(title, author, year, pages, read = false) {
+export default function Book(title, author, publisher, year, pages, read = false) {
     this.title = title;
     this.author = author;
+    this.publisher = publisher;
     this.year = year;
     this.pages = pages;
     this.read = read;

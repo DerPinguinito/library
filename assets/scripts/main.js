@@ -4,6 +4,7 @@ import lib from './lib.js'
 function getInputValues() {
     const bookTITLE = document.getElementById('btitle');
     const bookAUTHOR = document.getElementById('bauthor');
+    const bookPUBLISHER = document.getElementById('bpublisher')
     const bookYEAR = document.getElementById('byear');
     const bookPAGES = document.getElementById('bpages');
     const bookREAD = document.getElementById('bread');
@@ -11,6 +12,7 @@ function getInputValues() {
     const inputValues = {
         "title" : bookTITLE.value,
         "author" : bookAUTHOR.value,
+        "publisher" : bookPUBLISHER.value,
         "year" : bookYEAR.value,
         "pages" : bookPAGES.value,
         "read" : bookREAD.checked ? true : false,
@@ -22,12 +24,14 @@ function getInputValues() {
 function clearInputFields() {
     const bookTITLE = document.getElementById('btitle');
     const bookAUTHOR = document.getElementById('bauthor');
+    const bookPublisher = document.getElementById('bpublisher');
     const bookYEAR = document.getElementById('byear');
     const bookPAGES = document.getElementById('bpages');
     const bookREAD = document.getElementById('bread');
 
     bookTITLE.value = '';
     bookAUTHOR.value = '';
+    bookPublisher.value = '';
     bookYEAR.value = '';
     bookPAGES.value = '';
     bookREAD.checked = false;
@@ -49,7 +53,7 @@ function setAddBookButtonEvent(button, table) {
             console.log("Missing values");
             return;
         }
-        const newBOOK = lib.setBook(VALUES.title, VALUES.author, VALUES.year, VALUES.pages, VALUES.read);
+        const newBOOK = lib.setBook(VALUES.title, VALUES.author, VALUES.publisher, VALUES.year, VALUES.pages, VALUES.read);
         lib.addBookToLibrary(newBOOK);
         appendBookToTable(table, newBOOK);
         clearInputFields();
@@ -100,17 +104,23 @@ function appendBookToTable(table, book) {
 
     const TITLE = document.createElement('td');
     const AUTHOR = document.createElement('td');
+    const PUBLISHER = document.createElement('td');
     const YEAR = document.createElement('td');
     const PAGES = document.createElement('td');
-    const READ = createDropDownMenu(book);
+    const READ = document.createElement('td');
 
     TITLE.textContent = book.title;
     AUTHOR.textContent = book.author;
+    PUBLISHER.textContent = book.publisher;
     YEAR.textContent = book.year;
     PAGES.textContent = book.pages;
 
+    const MENU = createDropDownMenu(book);
+    READ.appendChild(MENU);
+
     TR.appendChild(TITLE);
     TR.appendChild(AUTHOR);
+    TR.appendChild(PUBLISHER);
     TR.appendChild(YEAR);
     TR.appendChild(PAGES);
     TR.appendChild(READ);
@@ -128,8 +138,8 @@ function loadLibrary(table) {
 
 function entryPoint() {
     // appends placeholder books
-    const a = lib.setBook("book1", "author1", 1001, 100, true);
-    const b = lib.setBook("book2", "author1", 1001, 100, true);
+    const a = lib.setBook("book1", "author1", "publisher 1", 1001, 100, true);
+    const b = lib.setBook("book2", "author1", "publisher 2", 1001, 100, true);
     lib.addBookToLibrary(a);
     lib.addBookToLibrary(b);
 
