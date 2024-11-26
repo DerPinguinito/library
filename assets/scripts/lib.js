@@ -24,7 +24,27 @@ const lib = {
     removeBook(book) {
         const i = LIBRARY.indexOf(book);
         LIBRARY.splice(i, 1);
+    },
+    searchFor(string) {
+        const VALUES = [];
+        if (!string.includes(',')) {
+            VALUES.push(string);
+        }
+        if (string.includes(',')) {
+            const DATA = string.split(',');
+            DATA.forEach(value => {
+                VALUES.push(value);
+            });   
+        }
+        const MATCHES = [];
+        LIBRARY.forEach(book => {
+            if (VALUES.includes(book.title) || VALUES.includes(book.author)) {
+                MATCHES.push(book);
+            }
+        })
+        
     }
+
 }
 
 export default lib;

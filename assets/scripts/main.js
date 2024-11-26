@@ -154,6 +154,23 @@ function loadLibrary(table) {
     })
 }
 
+function getSearchBox() {
+    const searchBox = document.getElementById('sbox');
+    return searchBox;
+}
+
+function setSearchBoxEvent(searchBox) {
+    searchBox.addEventListener('keyup', e => {
+        if (e.keyCode === 13) {
+            if (!searchBox.value) {
+                console.log('nothing to search for');
+                return;
+            };
+            lib.searchFor(searchBox.value);
+        }
+    })
+}
+
 function entryPoint() {
     // appends placeholder books
     const a = lib.setBook("book1", "author1", "publisher 1", 1001, 100, true);
@@ -165,6 +182,9 @@ function entryPoint() {
     const TABLE = getTableBody();
     loadLibrary(TABLE);
     setAddBookButtonEvent(submitBUTTON, TABLE);
+    const searchBOX = getSearchBox();
+    setSearchBoxEvent(searchBOX);
+
 }
 
 function main() {
