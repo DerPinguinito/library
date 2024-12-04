@@ -145,6 +145,11 @@ function appendBookToTable(table, book) {
     TR.appendChild(READ);
 
     const tableBODY = table.querySelector('tbody');
+    if (!tableBODY) {
+        const BODY = document.createElement('tbody');
+        table.appendChild(BODY);
+        BODY.append(TR);
+    }
     tableBODY.appendChild(TR);
 }
 
@@ -181,6 +186,9 @@ function setSearchBoxEvent(searchBox) {
             }
             const TABLE = getTable();
             wipeTableBody(TABLE);
+            bookMATCHES.forEach(book => {
+                appendBookToTable(TABLE, book);
+            })
 
         }
     })
