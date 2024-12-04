@@ -74,7 +74,7 @@ function setDeleteButtonEvent(button, book) {
     })
 }
 
-function getTableBody() {
+function getTable() {
     const TABLE = document.getElementsByTagName('table')[0];
     if (!TABLE) {
         console.log("Table not found");
@@ -144,7 +144,8 @@ function appendBookToTable(table, book) {
     TR.appendChild(PAGES);
     TR.appendChild(READ);
 
-    table.appendChild(TR);
+    const tableBODY = table.querySelector('tbody');
+    tableBODY.appendChild(TR);
 }
 
 function loadLibrary(table) {
@@ -159,6 +160,14 @@ function getSearchBox() {
     return searchBox;
 }
 
+function wipeTableBody(table) {
+    const BODY = table.querySelector('tbody');
+    if (!BODY) {
+        return;
+    }
+    BODY.parentNode.removeChild(BODY);
+}
+
 function setSearchBoxEvent(searchBox) {
     searchBox.addEventListener('keyup', e => {
         if (e.keyCode === 13) {
@@ -167,6 +176,12 @@ function setSearchBoxEvent(searchBox) {
                 return;
             };
             const bookMATCHES = lib.searchFor(searchBox.value);
+            if (!bookMATCHES) {
+                return;
+            }
+            const TABLE = getTable();
+            wipeTableBody(TABLE);
+
         }
     })
 }
@@ -179,7 +194,7 @@ function entryPoint() {
     lib.addBookToLibrary(b);
 
     const submitBUTTON = getButton('submit');
-    const TABLE = getTableBody();
+    const TABLE = getTable();
     loadLibrary(TABLE);
     setAddBookButtonEvent(submitBUTTON, TABLE);
     const searchBOX = getSearchBox();
