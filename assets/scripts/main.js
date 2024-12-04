@@ -202,8 +202,8 @@ function setSearchBoxEvent(searchBox) {
 
 function entryPoint() {
     // appends placeholder books
-    const a = lib.setBook("book1", "author1", "publisher 1", 1001, 100, true);
-    const b = lib.setBook("book2", "author1", "publisher 2", 1001, 100, true);
+    const a = lib.setBook("The Bricks that Built the Houses", "Kae Tempest", "Bloomsbury USA", 2016, 416, true);
+    const b = lib.setBook("Orlando", "Virginia Woolf", "Modern Classics", 2000, 336, true);
     lib.addBookToLibrary(a);
     lib.addBookToLibrary(b);
 
