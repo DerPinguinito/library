@@ -3,7 +3,7 @@
     --general-font-color: rgba(0, 244, 3, 0.72);
     --main-font-size: 1.2rem;
     --general-font-size: 1rem;
-    --custom-border: 2px dotted var(--general-font-color);
+    --custom-border: 2px dashed var(--general-font-color);
     --section-padding: 20px;
     --label-size: 1rem;
 
@@ -43,10 +43,44 @@ header,
     border: var(--custom-border);
 }
 
+h1,
+h2,
+th,
+button,
+label {
+    text-transform: uppercase;
+}
+
 input,
 td {
     font-size: var(--general-font-size);
     color: var(--general-font-color);
+}
+
+input:not([type="checkbox"]) {
+    outline: 1px dotted var(--general-font-color);
+    border: none;
+    padding: 5px;
+}
+
+select,
+input:focus {
+    outline: 1px solid var(--main-color);
+    border: none;
+}
+
+button {
+    padding-inline: 10px;
+    padding-block: 2px;
+    border: 2px inset var(--general-font-color);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--main-color);
 }
 
 header {
@@ -84,35 +118,16 @@ header > h1 {
 
 .sidebar > .menu > div {
     display: grid;
-    grid-template-columns: 0.5fr 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 30px;
     margin: 5px;
-}
-.sidebar > .menu > div > label {
-    text-transform: uppercase;
-    font-size: var(--label-size);
 }
 
 .sidebar > .menu > div > input {
-    border: none;
-    border-radius: 5px;
     height: 1.5rem;
     width: 10rem;
-    padding: 2px;
-}
-
-.sidebar > .menu > button {
-    border: none;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-inline: 20px;
-    
 }
 
 .search-area {
