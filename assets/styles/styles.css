@@ -1,11 +1,22 @@
+:root {
+    --main-color: rgba(1, 255, 4, 1);
+    --general-font-color: rgba(0, 244, 3, 0.72);
+    --main-font-size: 1.2rem;
+    --general-font-size: 1rem;
+    --custom-border: 2px dotted var(--general-font-color);
+    --section-padding: 20px;
+    --label-size: 1rem;
+
+}
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
-
-:root {
-    --label-size: 1rem;
+    background-color: rgba(15, 18, 16, 1);
+    font-family: Courier;
+    font-size: var(--main-font-size);
+    color: var(--main-color);
 }
 
 body {
@@ -13,48 +24,57 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: lightpink;
-
+    padding: 50px;
 }
 
 main {
-    background-color: lightblue;
-    border: 1px solid white;
     padding: 15px;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 0.2fr 0.2fr 1fr 1fr;
-    gap: 15px;
+    gap: 20px;
+}
+
+header,
+.sidebar,
+.search-area,
+.output-area {
+    padding: var(--section-padding);
+    border: var(--custom-border);
+}
+
+input,
+td {
+    font-size: var(--general-font-size);
+    color: var(--general-font-color);
 }
 
 header {
     grid-column: 1 / 3;
     grid-row: 1 / 2;
-    border: 1px solid black;
-    padding: 20px;
 }
 
+header > h1 {
+    text-align: center;
+}
 
 .sidebar {
     grid-column: 1 / 2;
     grid-row: 2 / 5;
-    border: 2px solid white;
-    background-color: lightgreen;
-    padding: 15px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .sidebar > h2 {
-    margin: 15px;
+    text-align: center;
+    padding: 15px;
+
 }
 
 .sidebar > .menu {
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -96,17 +116,12 @@ header {
 }
 
 .search-area {
-    border: 2px solid red;
-    background-color: lightslategrey;
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 15px;
-    padding: 15px;
-
-
 }
 
 #sbox {
@@ -114,17 +129,15 @@ header {
 }
 
 .output-area {
-    border: 2px solid purple;
-    background-color: lightsalmon;
     grid-column: 2 / 3;
     grid-row: 3 / 5;
+    padding: 20px;
 }
 
 table {
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
-    border: 3px solid white;
 }
 
 th,
