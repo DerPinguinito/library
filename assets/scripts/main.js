@@ -173,23 +173,29 @@ function wipeTableBody(table) {
     BODY.parentNode.removeChild(BODY);
 }
 
+function setSearchButtonEvent(button, searchBox) {
+    button.addEventListener('click', () => {
+        if (!searchBox.value) {
+            console.log('nothing to search for');
+            return;
+        };
+        const bookMATCHES = lib.searchFor(searchBox.value);
+        if (!bookMATCHES) {
+            return;
+        }
+        const TABLE = getTable();
+        wipeTableBody(TABLE);
+        bookMATCHES.forEach(book => {
+            appendBookToTable(TABLE, book);
+        })
+    })
+}
+
 function setSearchBoxEvent(searchBox) {
     searchBox.addEventListener('keyup', e => {
+        const BUTTON = document.getElementById('search');
         if (e.keyCode === 13) {
-            if (!searchBox.value) {
-                console.log('nothing to search for');
-                return;
-            };
-            const bookMATCHES = lib.searchFor(searchBox.value);
-            if (!bookMATCHES) {
-                return;
-            }
-            const TABLE = getTable();
-            wipeTableBody(TABLE);
-            bookMATCHES.forEach(book => {
-                appendBookToTable(TABLE, book);
-            })
-
+            BUTTON.click();
         }
     })
 }
@@ -207,7 +213,8 @@ function entryPoint() {
     setAddBookButtonEvent(submitBUTTON, TABLE);
     const searchBOX = getSearchBox();
     setSearchBoxEvent(searchBOX);
-
+    const searchBUTTON = getButton('search');
+    setSearchButtonEvent(searchBUTTON, searchBOX);
 }
 
 function main() {
