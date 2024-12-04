@@ -10,9 +10,9 @@ function getInputValues() {
     const bookREAD = document.getElementById('bread');
 
     const inputValues = {
-        "title" : bookTITLE.value,
-        "author" : bookAUTHOR.value,
-        "publisher" : bookPUBLISHER.value,
+        "title" : bookTITLE.value.trim(),
+        "author" : bookAUTHOR.value.trim(),
+        "publisher" : bookPUBLISHER.value.trim(),
         "year" : bookYEAR.value,
         "pages" : bookPAGES.value,
         "read" : bookREAD.checked ? true : false,

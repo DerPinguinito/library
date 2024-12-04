@@ -28,17 +28,17 @@ const lib = {
     searchFor(string) {
         const VALUES = [];
         if (!string.includes(',')) {
-            VALUES.push(string);
+            VALUES.push(string.toLowerCase().trim());
         }
         if (string.includes(',')) {
             const DATA = string.split(',');
             DATA.forEach(value => {
-                VALUES.push(value);
+                VALUES.push(value.toLowerCase().trim());
             });   
         }
         const MATCHES = [];
         LIBRARY.forEach(book => {
-            if (VALUES.includes(book.title) || VALUES.includes(book.author)) {
+            if (VALUES.includes(book.title.toLowerCase()) || VALUES.includes(book.author.toLowerCase())) {
                 MATCHES.push(book);
             }
         })
