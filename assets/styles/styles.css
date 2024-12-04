@@ -109,6 +109,10 @@ header {
 
 }
 
+#sbox {
+    flex-grow: 1;
+}
+
 .output-area {
     border: 2px solid purple;
     background-color: lightsalmon;
