@@ -166,7 +166,7 @@ function setSearchBoxEvent(searchBox) {
                 console.log('nothing to search for');
                 return;
             };
-            lib.searchFor(searchBox.value);
+            const bookMATCHES = lib.searchFor(searchBox.value);
         }
     })
 }

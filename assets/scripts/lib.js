@@ -42,7 +42,7 @@ const lib = {
                 MATCHES.push(book);
             }
         })
-        
+        return MATCHES;        
     }
 
 }
